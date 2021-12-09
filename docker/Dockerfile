@@ -34,4 +34,4 @@ ENV USER $USER
 
 WORKDIR $HOME
 COPY .vimrc $HOME/.
-COPY bashrc $HOME/.bashrc
+COPY .bashrc $HOME/.bashrc
