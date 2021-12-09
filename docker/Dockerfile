@@ -1,4 +1,4 @@
-FROM ithacafv/openfoam2106:manifest-latest
+FROM ithacafv/openfoam2106:manifest-arm64
 LABEL maintainer="moaadkhamlich@gmail.com"
 
 RUN apt-get update \
