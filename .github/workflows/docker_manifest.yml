@@ -7,8 +7,6 @@ on:
 
 jobs:
   build-manifest:
-    needs: [docker-amd64, docker-arm64]
-
     runs-on: ubuntu-latest
 
     steps:
