@@ -1,0 +1,20 @@
+name: Manifest
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build-manifest:
+    needs: [docker-amd64, docker-arm64]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: manifest creation
+      run: docker manifest create ithacafv/ithacafv:manifest-latest --amend ithacafv/ithacafv:manifest-amd64 --amend ithacafv/ithacafv:manifest-arm64
+    - name: push manifest
+      run : docker manifest push ithacafv/ithacafv:manifest-latest
