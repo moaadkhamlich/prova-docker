@@ -12,6 +12,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+
     - name: manifest creation
       run: docker manifest create ithacafv/ithacafv:manifest-latest --amend ithacafv/ithacafv:manifest-amd64 --amend ithacafv/ithacafv:manifest-arm64
     - name: push manifest
